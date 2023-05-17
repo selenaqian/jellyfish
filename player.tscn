@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://q4nko361rw62"]
+[gd_scene load_steps=9 format=3 uid="uid://q4nko361rw62"]
 
+[ext_resource type="Script" path="res://player.gd" id="1_kshts"]
 [ext_resource type="Texture2D" uid="uid://bbsbpuecjk40j" path="res://assets/jellyfish_move/jellyfish_move-1 (dragged).jpg" id="1_oplkq"]
 [ext_resource type="Texture2D" uid="uid://don1v0cp6d0ab" path="res://assets/jellyfish_move/jellyfish_move-2 (dragged).jpeg" id="2_fut7n"]
 [ext_resource type="Texture2D" uid="uid://lq646ahprcwi" path="res://assets/jellyfish_move/jellyfish_move-3 (dragged).jpeg" id="3_j1c3n"]
@@ -95,6 +96,8 @@ _data = {
 }
 
 [node name="Player" type="Node2D"]
+position = Vector2(328, 297)
+script = ExtResource("1_kshts")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "move"
@@ -103,7 +106,6 @@ libraries = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(547, 306)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.2, 0.2)
