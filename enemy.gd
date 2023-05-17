@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-signal squashed
+signal blasted
 
 # Minimum speed of the mob in meters per second.
 @export var min_speed = 150
@@ -35,13 +35,15 @@ func initialize(start_position, player_position):
 	var velocity = Vector2(randi_range(min_speed, max_speed), 0.0)
 
 	linear_velocity = velocity.rotated(rotation)
+	
+	rotation = atan2(linear_velocity.x, -linear_velocity.y)
 
 
 func _on_visible_on_screen_notifier_3d_screen_exited():
 	queue_free()
 
 
-func squash():
-	squashed.emit()
-	queue_free()
-
+func _on_body_entered(body):
+	if not body.is_in_group("enemy"):
+		blasted.emit()
+		queue_free()
