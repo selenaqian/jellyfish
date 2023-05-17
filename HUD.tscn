@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8jedatto14id"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="1_d6qto"]
+[ext_resource type="Theme" uid="uid://ds3rjdqa7ke6e" path="res://font_theme.tres" id="1_i2fde"]
+[ext_resource type="Script" path="res://ScoreLabel.gd" id="2_etv2q"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_d6qto")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -121.5
+offset_right = 121.5
+offset_bottom = 91.0
+grow_horizontal = 2
+theme = ExtResource("1_i2fde")
+text = "Score: 0"
+script = ExtResource("2_etv2q")
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_i2fde")
+text = "Start"
+
+[node name="PlayerCountButton" type="OptionButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.5
+offset_top = -48.0
+offset_right = 160.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_i2fde")
+item_count = 3
+selected = 0
+popup/item_0/text = "2 Players"
+popup/item_0/id = 2
+popup/item_1/text = "3 Players"
+popup/item_1/id = 3
+popup/item_2/text = "4 Players"
+popup/item_2/id = 4
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="item_selected" from="PlayerCountButton" to="." method="_on_player_count_button_item_selected"]
