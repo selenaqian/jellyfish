@@ -10,22 +10,23 @@ signal hit
 @export var speed : int = 400
 
 var screen_size := Vector2(100, 100)
+var health : int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2.ZERO
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed(move_right_action):
 		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed(move_left_action):
 		velocity.x -= 1
-	if Input.is_action_pressed("move_up"):
+	if Input.is_action_pressed(move_up_action):
 		velocity.y -= 1
-	if Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed(move_down_action):
 		velocity.y += 1
 	
 	if velocity.length() > 0:

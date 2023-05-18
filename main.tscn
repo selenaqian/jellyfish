@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://2no51eejll5k"]
+
+[ext_resource type="PackedScene" uid="uid://0mi7vtnvxivd" path="res://scene.tscn" id="1_3cyso"]
+[ext_resource type="Script" path="res://main.gd" id="1_ap344"]
+[ext_resource type="PackedScene" uid="uid://b8jedatto14id" path="res://HUD.tscn" id="3_l0k23"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ap344")
+world_scene = ExtResource("1_3cyso")
+
+[node name="HUD" parent="." instance=ExtResource("3_l0k23")]
+
+[connection signal="player_count" from="HUD" to="." method="_on_hud_player_count"]
+[connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
