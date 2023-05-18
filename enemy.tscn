@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://bp6r1r8dkqanq"]
 
-[ext_resource type="Texture2D" uid="uid://bmwol61dgncto" path="res://assets/jellyfish_move/jellyfish_move-24 (dragged).jpeg" id="1_4d3hd"]
 [ext_resource type="Script" path="res://enemy.gd" id="1_t0o4b"]
-[ext_resource type="Texture2D" uid="uid://cgd5q05yqxtcb" path="res://assets/jellyfish_move/jellyfish_move-25 (dragged).jpeg" id="2_pl530"]
+[ext_resource type="Texture2D" uid="uid://chlvlgv88jble" path="res://assets/jellyfish_float/jellyfish_float_6.PNG" id="2_vw858"]
+[ext_resource type="Texture2D" uid="uid://cwlvkdje2bubi" path="res://assets/jellyfish_float/jellyfish_float_7.PNG" id="3_c4rcd"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_38t7t"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_uov2o"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_4d3hd")
+"texture": ExtResource("2_vw858")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_pl530")
+"texture": ExtResource("3_c4rcd")
 }],
 "loop": true,
 "name": &"default",
@@ -26,11 +26,11 @@ gravity_scale = 0.0
 script = ExtResource("1_t0o4b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.15, 0.15)
-sprite_frames = SubResource("SpriteFrames_38t7t")
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_uov2o")
 autoplay = "default"
 frame = 1
-frame_progress = 0.897987
+frame_progress = 0.856049
 offset = Vector2(13.3333, -135)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

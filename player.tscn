@@ -1,16 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://q4nko361rw62"]
+[gd_scene load_steps=16 format=3 uid="uid://q4nko361rw62"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_kshts"]
-[ext_resource type="Texture2D" uid="uid://bbsbpuecjk40j" path="res://assets/jellyfish_move/jellyfish_move-1 (dragged).jpg" id="1_oplkq"]
-[ext_resource type="Texture2D" uid="uid://don1v0cp6d0ab" path="res://assets/jellyfish_move/jellyfish_move-2 (dragged).jpeg" id="2_fut7n"]
-[ext_resource type="Texture2D" uid="uid://lq646ahprcwi" path="res://assets/jellyfish_move/jellyfish_move-3 (dragged).jpeg" id="3_j1c3n"]
+[ext_resource type="Texture2D" uid="uid://df80dcv5xkrsc" path="res://assets/jellyfish_float/jellyfish_float_2.PNG" id="3_6rph5"]
+[ext_resource type="Texture2D" uid="uid://dl5mtkp8grft2" path="res://assets/jellyfish_float/jellyfish_float_3.PNG" id="4_bgttc"]
+[ext_resource type="Texture2D" uid="uid://blncwtco51gbv" path="res://assets/jellyfish_float/jellyfish_float_4.PNG" id="5_n3fbq"]
+[ext_resource type="Texture2D" uid="uid://b4h8krwd3romc" path="res://assets/jellyfish_float/jellyfish_float_1.PNG" id="5_vpmnc"]
+[ext_resource type="Texture2D" uid="uid://bclvj0pvo55rc" path="res://assets/jellyfish_float/jellyfish_float_5.PNG" id="6_qism7"]
+[ext_resource type="Texture2D" uid="uid://chlvlgv88jble" path="res://assets/jellyfish_float/jellyfish_float_6.PNG" id="7_ym2t0"]
+[ext_resource type="Texture2D" uid="uid://cwlvkdje2bubi" path="res://assets/jellyfish_float/jellyfish_float_7.PNG" id="8_43tw2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ijmo3"]
 radius = 13.0
 height = 50.0
 
 [sub_resource type="Animation" id="Animation_fu3a3"]
-length = 0.001
+loop_mode = 1
+step = 0.14
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,10 +23,10 @@ tracks/0/path = NodePath("CharacterBody2D/Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.14, 0.28, 0.42, 0.56, 0.7, 0.84),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("1_oplkq")]
+"values": [ExtResource("5_vpmnc"), ExtResource("3_6rph5"), ExtResource("4_bgttc"), ExtResource("5_n3fbq"), ExtResource("6_qism7"), ExtResource("7_ym2t0"), ExtResource("8_43tw2")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -48,6 +53,15 @@ tracks/2/keys = {
 "values": [Vector2(-2, -5)]
 }
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y0el8"]
+load_path = "res://.godot/imported/jellyfish_move-1 (dragged).jpg-d80620c0db5e0712903dc39775e9363f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qtax7"]
+load_path = "res://.godot/imported/jellyfish_move-2 (dragged).jpeg-6b5e1e3732f319fa1efc62dbb3def9c3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_43rav"]
+load_path = "res://.godot/imported/jellyfish_move-3 (dragged).jpeg-3e55f1747b7dc9158391337d81250f6a.ctex"
+
 [sub_resource type="Animation" id="Animation_51yry"]
 resource_name = "move"
 length = 0.3
@@ -62,7 +76,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("1_oplkq"), ExtResource("2_fut7n"), ExtResource("3_j1c3n")]
+"values": [SubResource("CompressedTexture2D_y0el8"), SubResource("CompressedTexture2D_qtax7"), SubResource("CompressedTexture2D_43rav")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -100,7 +114,7 @@ position = Vector2(328, 297)
 script = ExtResource("1_kshts")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "move"
+autoplay = "RESET"
 libraries = {
 "": SubResource("AnimationLibrary_6rj0e")
 }
@@ -108,8 +122,8 @@ libraries = {
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_oplkq")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_vpmnc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-2, -5)
